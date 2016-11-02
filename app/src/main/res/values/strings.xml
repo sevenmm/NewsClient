@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Test</string>
+    <string name="app_main">我是主页面的TextView</string>
+</resources>
