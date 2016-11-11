@@ -1,4 +1,4 @@
-package com.example.administrator.test;
+package com.example.administrator.test.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.administrator.test.R;
 
 public class Main2Activity extends AppCompatActivity {
 

@@ -7,34 +7,22 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="@string/app_main"
-        android:textSize="@dimen/activity_text_main"
+        android:layout_gravity="center"
+        android:textSize="39dp"
+        android:paddingBottom="1dp"
+        android:paddingTop="15dp"
+        android:textStyle="bold"
+        android:typeface="serif"
+        android:focusableInTouchMode="true"
         android:textColor="@color/colorText"
         android:layout_height="wrap_content" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="时间提醒"
-        android:textSize="35dp"
-        android:onClick="onClick"
-        android:id="@+id/button1"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="开启新的世界"
-        android:id="@+id/btn_newworld"
-        android:textSize="25dp"
-        android:textColor="#FF0000"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_tellphone"
-        android:text="电话拨号器"
-        android:textSize="25dp"
-        android:textColor="#FF00FF"/>
+    <ListView
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/colorText4"
+        android:dividerHeight="1dp"
+        android:id="@+id/lv_function"></ListView>
 
 
 

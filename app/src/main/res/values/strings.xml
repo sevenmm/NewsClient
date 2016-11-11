@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Test</string>
-    <string name="app_main">我是主页面的TextView</string>
+    <string name="app_main">MAIN INTERFACE</string>
     <string name="tell">拨打电话</string>
 </resources>

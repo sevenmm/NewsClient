@@ -1,4 +1,4 @@
-package com.example.administrator.test;
+package com.example.administrator.test.ui;
 
 import android.Manifest;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.administrator.test.R;
 
 public class TellPhone extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.administrator.test;
+package com.example.administrator.test.server;
 
 import android.app.Service;
 import android.content.Intent;
