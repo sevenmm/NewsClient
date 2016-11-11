@@ -24,9 +24,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="开启新的世界"
+        android:id="@+id/btn_newworld"
         android:textSize="25dp"
-        android:textColor="#FF0000"
-        android:onClick="onNewActivity"/>
+        android:textColor="#FF0000"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_tellphone"
+        android:text="电话拨号器"
+        android:textSize="25dp"
+        android:textColor="#FF00FF"/>
+
+
 
 
 </LinearLayout>
