@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.example.administrator.test.R;
 
-public class Main2Activity extends AppCompatActivity {
+public class ListViewActivity extends AppCompatActivity {
 
     private Button btn_back;
     private Context context;

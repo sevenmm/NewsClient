@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.administrator.test.R;
+import com.example.administrator.test.utils.Utils;
 
 public class TellPhone extends AppCompatActivity {
 
@@ -39,6 +40,7 @@ public class TellPhone extends AppCompatActivity {
                 intentPhone.setAction(Intent.ACTION_CALL);
                 intentPhone.setData(Uri.parse("tel:" + number));
                 startActivity(intentPhone);
+                Utils.MyToast(TellPhone.this, "短信已发送");
             }
         });
     }

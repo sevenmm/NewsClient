@@ -3,18 +3,14 @@ package com.example.administrator.test.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.administrator.test.R;
 import com.example.administrator.test.utils.Utils;
@@ -27,7 +23,8 @@ public class MainActivity extends Activity {
 
     Context mContext = MainActivity.this;
     private ListView lvFunction;
-    private String[] functions = new String[]{"时间提醒","SimpleListView","电话拨号器","短信发送器"};
+    private String[] functions = new String[]{"时间提醒"
+            ,"SimpleListView","电话拨号器","短信发送器","Save to local"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,13 +42,16 @@ public class MainActivity extends Activity {
                         Utils.MyToast(mContext,date);
                         break;
                     case "SimpleListView":
-                        newActivity(mContext, Main2Activity.class);
+                        newActivity(mContext, ListViewActivity.class);
                         break;
                     case "电话拨号器":
                         newActivity(mContext, TellPhone.class);
                         break;
                     case "短信发送器":
                         newActivity(mContext, SmsMessage.class);
+                        break;
+                    case "Save to local":
+                        newActivity(mContext, SaveToLocal.class);
                         break;
                 }
             }

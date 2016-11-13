@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.Main2Activity" />
+        <activity android:name=".ui.ListViewActivity" />
 
         <service
             android:name=".server.MyService"
@@ -26,7 +26,8 @@
             android:exported="true" />
 
         <activity android:name=".ui.TellPhone" />
-        <activity android:name=".ui.SmsMessage"></activity>
+        <activity android:name=".ui.SmsMessage" />
+        <activity android:name=".ui.SaveToLocal"></activity>
     </application>
 
 </manifest>
