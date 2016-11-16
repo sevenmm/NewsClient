@@ -33,13 +33,16 @@ public class SaveToLocal extends AppCompatActivity {
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(pass)) {
             Utils.MyToast(context, "用户名或密码不能为空");
         } else {
-            SharedPreferences preferences = context.getSharedPreferences("007info", Context.MODE_NO_LOCALIZED_COLLATORS);
+            SharedPreferences preferences = context.getSharedPreferences("007info", Context.MODE_PRIVATE);
             SharedPreferences.Editor edit = preferences.edit();
             edit.putString("用户名", name);
             edit.putString("密码", pass);
             edit.commit();
 
-//            Utils.MyToast(context,"已经保存");
+            SharedPreferences sp2 = getSharedPreferences("007info", context.MODE_PRIVATE);
+            String user2 = sp2.getString("用户名", "");
+
+            Utils.MyToast(context,user2);
         }
     }
 

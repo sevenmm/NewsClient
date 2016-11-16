@@ -12,8 +12,19 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.administrator.test.R;
+import com.example.administrator.test.utils.MyJsonObjectRequest;
+import com.example.administrator.test.utils.MyStringRequest;
 import com.example.administrator.test.utils.Utils;
+
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,10 +36,57 @@ public class MainActivity extends Activity {
     private ListView lvFunction;
     private String[] functions = new String[]{"时间提醒"
             ,"SimpleListView","电话拨号器","短信发送器","Save to local"};
+    String url = "http://192.168.31.118:8080/007/list_1.json";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_main);
+
+        //访问网络
+        //StringRequest
+        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
+//        StringRequest stringRequest = new MyStringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String s) {
+//                Utils.MyToast(mContext,s);
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError volleyError) {
+//                Utils.MyToast(mContext,"获取网络数据失败");
+//            }
+//        });
+//        requestQueue.add(stringRequest);
+
+        //JsonObjectRequest
+        //1.会出现乱码
+/*        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject jsonObject) {
+                Utils.MyToast(mContext, jsonObject.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Utils.MyToast(mContext,"访问网络数据失败");
+            }
+        });*/
+
+        //2.自定义JsonObjectRequest,修改了乱码问题
+        JsonObjectRequest jsonObjectRequest = new MyJsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject jsonObject) {
+                Utils.MyToast(mContext,jsonObject.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Utils.MyToast(mContext,"访问网络数据失败");
+            }
+        });
+        requestQueue.add(jsonObjectRequest);
+
+
 
         lvFunction = (ListView) findViewById(R.id.lv_function);
         lvFunction.setAdapter(new MyFunctionAdapter());
@@ -56,6 +114,7 @@ public class MainActivity extends Activity {
                 }
             }
         });
+
 
     }
 
