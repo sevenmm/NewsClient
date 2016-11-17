@@ -28,7 +28,8 @@
 
         <activity android:name=".ui.TellPhone" />
         <activity android:name=".ui.SmsMessage" />
-        <activity android:name=".ui.SaveToLocal"></activity>
+        <activity android:name=".ui.SaveToLocal" />
+        <activity android:name=".ui.ImageActivity"></activity>
     </application>
 
 </manifest>
