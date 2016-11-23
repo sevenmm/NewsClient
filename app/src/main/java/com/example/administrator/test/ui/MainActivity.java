@@ -12,17 +12,11 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
 import com.example.administrator.test.R;
-import com.example.administrator.test.utils.JsonUtil;
 import com.example.administrator.test.utils.Utils;
-import com.google.gson.JsonArray;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 
 
 public class MainActivity extends Activity {
@@ -31,7 +25,7 @@ public class MainActivity extends Activity {
     private ListView lvFunction;
     private String url = "http://192.168.31.118:8080/007/list_1.json";
     private String[] functions = new String[]{"时间提醒", "SimpleListView",
-            "电话拨号器", "短信发送器", "Save to Local","图片搜索"};
+            "电话拨号器", "短信发送器", "Save to Local","图片搜索","下拉刷新"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +112,9 @@ public class MainActivity extends Activity {
                         break;
                     case "图片搜索":
                         newActivity(mContext, ImageActivity.class);
+                        break;
+                    case "下拉刷新":
+                        newActivity(mContext, RefershListView.class);
                         break;
                 }
             }

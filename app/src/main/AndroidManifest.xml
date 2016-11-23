@@ -29,7 +29,8 @@
         <activity android:name=".ui.TellPhone" />
         <activity android:name=".ui.SmsMessage" />
         <activity android:name=".ui.SaveToLocal" />
-        <activity android:name=".ui.ImageActivity"></activity>
+        <activity android:name=".ui.ImageActivity" />
+        <activity android:name=".ui.RefershListView"></activity>
     </application>
 
 </manifest>

@@ -9,11 +9,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.test.R;
+import com.example.administrator.test.utils.Utils;
 
 public class ListViewActivity extends AppCompatActivity {
 
@@ -40,7 +42,7 @@ public class ListViewActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(context, "您点击了第" + i + "条item",Toast.LENGTH_SHORT).show();
+                Utils.MyToast(context, "您点击了第" + i + "条item");
             }
         });
     }
@@ -64,9 +66,26 @@ public class ListViewActivity extends AppCompatActivity {
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-            TextView textView = new TextView(context);
-            textView.setText("这是第" + i + "个item");
-            return textView;
+
+            ViewHolder mViewHolder;
+            if (view == null) {
+                mViewHolder = new ViewHolder();
+                view = View.inflate(context, R.layout.item_simplelistview, null);
+                mViewHolder.imageView = (ImageView) view.findViewById(R.id.iv_simplelistview);
+                mViewHolder.textView = (TextView) view.findViewById(R.id.tv_simplelistview);
+                view.setTag(mViewHolder);
+            }
+            mViewHolder = (ViewHolder) view.getTag();
+
+            mViewHolder.imageView.setImageResource(R.drawable.ic_launcher);
+            mViewHolder.textView.setText("这是第" + i + "条item");
+
+            return view;
+        }
+
+        private class ViewHolder {
+            private ImageView imageView;
+            private TextView textView;
         }
     }
 
