@@ -1,6 +1,5 @@
 package com.example.administrator.test.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,12 +13,14 @@ import android.widget.TextView;
 
 import com.example.administrator.test.R;
 import com.example.administrator.test.utils.Utils;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends SlidingFragmentActivity {
 
     Context mContext = MainActivity.this;
     private ListView lvFunction;
@@ -28,9 +29,20 @@ public class MainActivity extends Activity {
             "电话拨号器", "短信发送器", "Save to Local","图片搜索","下拉刷新"};
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_main);
+
+
+        //侧拉菜单
+        SlidingMenu slidingmenu = getSlidingMenu();
+        setBehindContentView(R.layout.slidingmenu_layout);
+        slidingmenu.setBehindWidth(800);
+        slidingmenu.setMode(SlidingMenu.LEFT);
+        slidingmenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+
+
+
 
         //访问网络
 //        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
