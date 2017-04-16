@@ -25,8 +25,8 @@ public class MainActivity extends SlidingFragmentActivity {
     Context mContext = MainActivity.this;
     private ListView lvFunction;
     private String url = "http://192.168.31.118:8080/007/list_1.json";
-    private String[] functions = new String[]{"时间提醒", "SimpleListView",
-            "电话拨号器", "短信发送器", "Save to Local", "图片搜索", "下拉刷新", "新闻客户端"};
+    private String[] functions = new String[]{"新闻客户端","时间提醒", "SimpleListView",
+            "电话拨号器", "短信发送器", "Save to Local", "图片搜索", "下拉刷新"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
