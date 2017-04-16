@@ -9,19 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.administrator.test.base.BaseFragment;
+
 /**
  * Created by Administrator on 2017/4/16.
  */
 
-public class SmartServiceTabFragment extends Fragment {
+public class SmartServiceTabFragment extends BaseFragment {
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        TextView textView = new TextView(getContext());
-        textView.setText("智慧服务");
-        textView.setTextSize(25);
-        textView.setGravity(Gravity.CENTER);
-        return textView;
+    public void setContent() {
+        //getText(); 是获取onCreatView()创建的View
+        ((TextView)getView()).setText("这是智慧服务的内容");
     }
 }
