@@ -19,7 +19,7 @@ import com.example.administrator.test.fragment.SmartServiceTabFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsCenterActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
+public class NewsCenterActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
 
     private ViewPager mViewPager;
     private List<Fragment> fragments;
@@ -27,7 +27,6 @@ public class NewsCenterActivity extends AppCompatActivity implements RadioGroup.
     private RadioButton rb_home;
     private RadioButton rb_smartservice;
     private RadioButton rb_govaffairs;
-    private RadioButton rb_govaffairs1;
     private RadioButton rb_newscenter;
     private RadioButton rb_setting;
 
@@ -49,7 +48,7 @@ public class NewsCenterActivity extends AppCompatActivity implements RadioGroup.
 
         rb_home = (RadioButton) findViewById(R.id.rb_home);
         rb_smartservice = (RadioButton) findViewById(R.id.rb_smartservice);
-        rb_govaffairs1 = (RadioButton) findViewById(R.id.rb_govaffairs);
+        rb_govaffairs = (RadioButton) findViewById(R.id.rb_govaffairs);
         rb_newscenter = (RadioButton) findViewById(R.id.rb_newscenter);
         rb_setting = (RadioButton) findViewById(R.id.tb_setting);
 
@@ -67,6 +66,7 @@ public class NewsCenterActivity extends AppCompatActivity implements RadioGroup.
         fragments.add(new SettingTabFragment());
         TabAdapter tabAdapter = new TabAdapter(getSupportFragmentManager(),fragments);
         mViewPager.setAdapter(tabAdapter);
+        mViewPager.addOnPageChangeListener(this);
     }
 
     @Override
@@ -90,5 +90,37 @@ public class NewsCenterActivity extends AppCompatActivity implements RadioGroup.
                 break;
         }
         mViewPager.setCurrentItem(item,false); //false 去点点击tab切换ViewPager的滑动动画；
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        switch (position){
+            case 0:
+                rb_home.setChecked(true);
+                break;
+            case 1:
+                rb_newscenter.setChecked(true);
+                break;
+            case 2:
+                rb_smartservice.setChecked(true);
+                break;
+            case 3:
+                rb_govaffairs.setChecked(true);
+                break;
+            case 4:
+                rb_setting.setChecked(true);
+                break;
+        }
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 }
