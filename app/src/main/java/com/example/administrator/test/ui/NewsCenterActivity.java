@@ -38,7 +38,8 @@ public class NewsCenterActivity extends AppCompatActivity implements RadioGroup.
 
         initView();
         initVP();
-        initSlidingMenu();
+//        initSlidingMenu();
+
     }
 
     private void initSlidingMenu() {
