@@ -15,6 +15,7 @@ import com.example.administrator.test.fragment.HomeTabFragment;
 import com.example.administrator.test.fragment.NewsCenterTabFragment;
 import com.example.administrator.test.fragment.SettingTabFragment;
 import com.example.administrator.test.fragment.SmartServiceTabFragment;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,22 @@ public class NewsCenterActivity extends AppCompatActivity implements RadioGroup.
 
         initView();
         initVP();
+        initSlidingMenu();
+    }
+
+    private void initSlidingMenu() {
+        //创建侧滑菜单
+        SlidingMenu slidingMenu = new SlidingMenu(getApplicationContext());
+        //设置侧滑菜单从左侧滑出
+        slidingMenu.setMode(SlidingMenu.LEFT);
+        //全屏可以滑出
+        slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        //设置侧滑菜单的宽度
+        slidingMenu.setBehindWidth(400);
+        //把侧滑菜单添加到Activity上
+        slidingMenu.attachToActivity(this,SlidingMenu.SLIDING_CONTENT);
+        //设置侧滑菜单的布局
+        slidingMenu.setMenu(R.layout.slidingmenu_news);
     }
 
     //初始化控件
