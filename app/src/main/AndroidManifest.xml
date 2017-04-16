@@ -30,7 +30,8 @@
         <activity android:name=".ui.SmsMessage" />
         <activity android:name=".ui.SaveToLocal" />
         <activity android:name=".ui.ImageActivity" />
-        <activity android:name=".ui.RefershListView"></activity>
+        <activity android:name=".ui.RefershListView" />
+        <activity android:name=".ui.NewsCenterActivity"></activity>
     </application>
 
 </manifest>

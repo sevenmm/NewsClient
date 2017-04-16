@@ -51,7 +51,7 @@ public class ImageActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 imageView.setImageResource(R.drawable.ic_launcher);
-                Utils.MyToast(context,"访问地址图片出错");
+                Utils.MyToast(context, "访问地址图片出错");
             }
         });
         requestQueue.add(imageRequest);

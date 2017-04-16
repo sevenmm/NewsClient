@@ -26,7 +26,7 @@ public class MainActivity extends SlidingFragmentActivity {
     private ListView lvFunction;
     private String url = "http://192.168.31.118:8080/007/list_1.json";
     private String[] functions = new String[]{"时间提醒", "SimpleListView",
-            "电话拨号器", "短信发送器", "Save to Local","图片搜索","下拉刷新"};
+            "电话拨号器", "短信发送器", "Save to Local", "图片搜索", "下拉刷新", "新闻客户端"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,8 +40,6 @@ public class MainActivity extends SlidingFragmentActivity {
         slidingmenu.setBehindWidth(800);
         slidingmenu.setMode(SlidingMenu.LEFT);
         slidingmenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-
-
 
 
         //访问网络
@@ -108,7 +106,7 @@ public class MainActivity extends SlidingFragmentActivity {
                     case "时间提醒":
                         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         String date = format.format(new Date(System.currentTimeMillis()));
-                        Utils.MyToast(mContext,date);
+                        Utils.MyToast(mContext, date);
                         break;
                     case "SimpleListView":
                         newActivity(mContext, ListViewActivity.class);
@@ -127,6 +125,9 @@ public class MainActivity extends SlidingFragmentActivity {
                         break;
                     case "下拉刷新":
                         newActivity(mContext, RefershListView.class);
+                        break;
+                    case "新闻客户端":
+                        newActivity(mContext, NewsCenterActivity.class);
                         break;
                 }
             }
@@ -163,7 +164,7 @@ public class MainActivity extends SlidingFragmentActivity {
         }
     }
 
-    public void newActivity(Context context,Class clazz) {
+    public void newActivity(Context context, Class clazz) {
         Intent intent = new Intent(context, clazz);
         startActivity(intent);
     }
