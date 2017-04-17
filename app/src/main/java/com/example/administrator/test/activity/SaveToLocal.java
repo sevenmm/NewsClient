@@ -1,4 +1,4 @@
-package com.example.administrator.test.ui;
+package com.example.administrator.test.activity;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -1,4 +1,4 @@
-package com.example.administrator.test.ui;
+package com.example.administrator.test.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.administrator.test.R;
 import com.example.administrator.test.utils.Utils;

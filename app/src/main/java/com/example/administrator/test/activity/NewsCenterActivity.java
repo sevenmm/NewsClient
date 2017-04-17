@@ -1,4 +1,4 @@
-package com.example.administrator.test.ui;
+package com.example.administrator.test.activity;
 
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;

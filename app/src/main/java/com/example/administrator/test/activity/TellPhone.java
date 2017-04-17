@@ -1,4 +1,4 @@
-package com.example.administrator.test.ui;
+package com.example.administrator.test.activity;
 
 import android.Manifest;
 import android.content.Intent;
