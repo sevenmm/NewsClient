@@ -3,8 +3,9 @@ package com.example.administrator.test.activity;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -36,10 +37,14 @@ public class NewsCenterActivity extends AppCompatActivity implements RadioGroup.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_center);
 
+        //隐藏标题栏
+        if (getSupportActionBar() != null){
+            getSupportActionBar().hide();
+        }
+
         initView();
         initVP();
         initSlidingMenu();
-
     }
 
     private void initSlidingMenu() {
