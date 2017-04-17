@@ -1,5 +1,7 @@
 package com.example.administrator.test.fragment;
 
+import android.view.View;
+
 import com.example.administrator.test.base.BaseFragment;
 
 /**
@@ -9,4 +11,15 @@ import com.example.administrator.test.base.BaseFragment;
 public class HomeTabFragment extends BaseFragment {
 
 
+    @Override
+    public void initTitle() {
+        setIbMenuDisplayState(false);
+        setIbPicTypeDisplayState(false);
+        setTitle("首页");
+    }
+
+    @Override
+    public View creatContent() {
+        return null;
+    }
 }

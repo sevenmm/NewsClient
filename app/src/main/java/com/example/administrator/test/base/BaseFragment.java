@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.administrator.test.R;
+import com.example.administrator.test.activity.NewsCenterActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,6 +43,40 @@ public abstract class BaseFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initTitle();
+    }
+
+    //初始化标题栏，让每个子类去实现
+    public abstract void initTitle();
+
+    //创建内容
+    public abstract View creatContent();
+
+    //向容器里添加内容
+    public void addView(View view) {
+        container.removeAllViews();
+        container.addView(view);
+    }
+
+    //设置标题文字
+    public void setTitle(String title) {
+        tvTitle.setText(title);
+    }
+
+    //设置menu是否显示
+    public void setIbMenuDisplayState(boolean isShow){
+        ibMenu.setVisibility(isShow? View.VISIBLE:View.GONE);
+    }
+
+    //设置picType是否显示
+    public void setIbPicTypeDisplayState(boolean isShow) {
+        ibPicType.setVisibility(isShow?View.VISIBLE:View.GONE);
+    }
+
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
@@ -49,5 +84,6 @@ public abstract class BaseFragment extends Fragment {
 
     @OnClick(R.id.ib_menu)
     public void onViewClicked() {
+        ((NewsCenterActivity)getActivity()).slidingMenu.toggle();
     }
 }

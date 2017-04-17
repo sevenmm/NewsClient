@@ -31,6 +31,7 @@ public class NewsCenterActivity extends AppCompatActivity implements RadioGroup.
     private RadioButton rb_govaffairs;
     private RadioButton rb_newscenter;
     private RadioButton rb_setting;
+    public SlidingMenu slidingMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +50,11 @@ public class NewsCenterActivity extends AppCompatActivity implements RadioGroup.
 
     private void initSlidingMenu() {
         //创建侧滑菜单
-        SlidingMenu slidingMenu = new SlidingMenu(getApplicationContext());
+        slidingMenu = new SlidingMenu(getApplicationContext());
         //设置侧滑菜单从左侧滑出
         slidingMenu.setMode(SlidingMenu.LEFT);
-        //全屏可以滑出
-        slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        //不可以滑出
+        slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
         //设置侧滑菜单的宽度
         slidingMenu.setBehindWidth(400);
         //把侧滑菜单添加到Activity上
@@ -125,18 +126,23 @@ public class NewsCenterActivity extends AppCompatActivity implements RadioGroup.
         switch (position){
             case 0:
                 rb_home.setChecked(true);
+                slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
                 break;
             case 1:
                 rb_newscenter.setChecked(true);
+                slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
                 break;
             case 2:
                 rb_smartservice.setChecked(true);
+                slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
                 break;
             case 3:
                 rb_govaffairs.setChecked(true);
+                slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
                 break;
             case 4:
                 rb_setting.setChecked(true);
+                slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
                 break;
         }
 
