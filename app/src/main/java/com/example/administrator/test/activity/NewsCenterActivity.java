@@ -5,12 +5,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Window;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.administrator.test.R;
 import com.example.administrator.test.adapter.TabAdapter;
+import com.example.administrator.test.base.BaseFragment;
+import com.example.administrator.test.base.BaseLoadNetDataOperator;
+import com.example.administrator.test.bean.NewsCenterBean;
 import com.example.administrator.test.fragment.GovaffairsTabFragment;
 import com.example.administrator.test.fragment.HomeTabFragment;
 import com.example.administrator.test.fragment.NewsCenterTabFragment;
@@ -32,6 +34,14 @@ public class NewsCenterActivity extends AppCompatActivity implements RadioGroup.
     private RadioButton rb_newscenter;
     private RadioButton rb_setting;
     public SlidingMenu slidingMenu;
+
+    //侧滑菜单的数据
+    public List<NewsCenterBean.NewsCenterMenuBean> mNewsCenterMenuBeanList;
+
+    public void setmNewsCenterMenuBeanList(List<NewsCenterBean.NewsCenterMenuBean> mNewsCenterMenuBeanList) {
+        this.mNewsCenterMenuBeanList = mNewsCenterMenuBeanList;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +124,11 @@ public class NewsCenterActivity extends AppCompatActivity implements RadioGroup.
                 break;
         }
         mViewPager.setCurrentItem(item,false); //false 去点点击tab切换ViewPager的滑动动画；
+        //加载网络数据的入口
+        BaseFragment baseFragment = (BaseFragment)fragments.get(item);
+        if (baseFragment instanceof BaseLoadNetDataOperator) {
+            ((BaseLoadNetDataOperator)baseFragment).loadNetData();
+        }
     }
 
     @Override
